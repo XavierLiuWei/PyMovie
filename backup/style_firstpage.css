@@ -20,15 +20,10 @@ font-size: 4vmin; 文字大小與不隨螢幕大小變化?
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-
 ul {
     list-style: none;
-}
-
-body , html {
-    overflow-x: hidden;
 }
 
 
@@ -49,11 +44,6 @@ body , html {
 }
 .nav-links li {
     margin: 0px 30px;
-    cursor: pointer;
-}
-.nav-links li:hover{
-    background-color: #fc036b;
-    color: black;
 }
 
 /* 這是主標題 */
@@ -107,26 +97,9 @@ header{
     display: none;
 }
 
-/* 預算拉bar */
-.budget-block{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-}
-.budget-block span{
-    width: 100%;
-}
-.inputbudget{
-    width: 100%;
-}
-
-
 /* 試算區 */
 form {
     width: 90%;
-
     margin:40px auto;
     background-image: url(back.JPG);
 }
@@ -138,7 +111,7 @@ section {
 .title {
     text-align: center;
     font-size: 4vmin;
-    color: whitesmoke;
+    color: gray;
 }
 .row {
     display: flex;
@@ -156,7 +129,7 @@ section {
 .row .col h4{
     text-align: center;
     font-size: 3vmin;
-    color: whitesmoke;
+    color: gray;
     margin: 10px;
 }
 
@@ -187,28 +160,11 @@ section {
     text-align: center;
 }
 
-/* 提交按鈕 */
 
-.submit_btn {
-    width: 50%;
-    display: flex;
-    justify-content: center;
+/* 連結 */
+a {
+    text-decoration: none;
 }
-.submit_btn input{
-    width: 40%;
-    background-color: black;
-    color: whitesmoke;
-    justify-content: space-between;
-    cursor: pointer;
-    font-size: 3vmin;
-}
-.number{
-    width: 40%;
-    color: whitesmoke;
-    text-align: center;
-}
-
-
 
 /* 手機模式 */
 
@@ -242,25 +198,18 @@ section {
         margin: 30px auto;
     }
     .row {
+        display: flex;
         flex-direction: column;
     }
     .row .col {
-        margin-top: 0px;
+        margin-top: 20px;
     }
     .select-container-empty{
         font-size: 0;
         height: 0;
         width: 0;
         margin-bottom: 0px;
-    }
-    .submit_btn {
-        margin-bottom: 20px;
-    }
-    .select-box{
-        font-size: 4vmin;
-    }
-    .row .col h4{
-        font-size: 4vmin;
+
     }
 
 }

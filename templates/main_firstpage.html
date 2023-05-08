@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style_firstpage.css' ) }}">
-    <title>Document</title>
+    <title>我想py電影</title>
 </head>
 
 <body>
     <!-- 最上層選單 -->
     <nav id="navbar" class="navbar">
-        <h1 class="logo">好想PY電影</h1>
+        <h1 class="logo">我想PY電影</h1>
         <ul class="nav-links">
             <li id="home-btn"><a href="#"></a>首頁</li>
             <li id="predict-btn"><a href="#"></a>試算表</li>
-            <li id="dashboard-btn"><a href="#"></a>儀錶版</li>
+            <li id="dashboard-btn"><a href="#"></a>電影分析</li>
         </ul>
         <!-- 手機版用的按鈕 要切成手機大小才能看 -->
         <img src="/static/menu_btn.png" alt="按鈕" class="menu-btn">
@@ -26,8 +26,8 @@
         <div class="header-content">
             <h2>拍出你的電影</h2>
             <div class="line"></div>
-            <h1>好想py電影</h1>
-            <a href="#" class="ctn">LearnMore</a>
+            <h1>我想py電影</h1>
+            <!-- <a href="#" class="ctn">LearnMore</a> -->
         </div>
     </header>
     <form id='predict-form' class="predict" method="get" action="/result">
@@ -91,8 +91,8 @@
                 <div class="select-container">
                     <select id="sequal" name="sequal" class="select-box" required>
                         <option value="" disabled selected>--請選擇是否續集--</option>
-                        <option value="0">是</option>
-                        <option value="1">否</option>
+                        <option value="1">是</option>
+                        <option value="0">否</option>
                     </select>
                 </div>
                 <div class="budget-block"><span class="number">100萬</span>
@@ -108,25 +108,25 @@
                     <h4 id="margin_ans">預測的獲利:</h4>
                     <div class="submit_btn">
                         <input type="submit" value="預測">
-                        <input type="reset" value="重置">
+                        <input id='reset' type="reset" value="重置">
                     </div>
 
             </div>
         </div>
     </form>
     <section id='dashboard' class="dashboard">
-        <div class='tableauPlaceholder' id='viz1682862064528' style='position: relative'><noscript><a href='#'><img
-                        alt='主頁儀表板 '
-                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;04&#47;0429_2&#47;sheet0&#47;1_rss.png'
+        <div class='tableauPlaceholder' id='viz1683562017203' style='position: relative'><noscript><a href='#'><img
+                        alt='票房與預算 '
+                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16835414281880&#47;sheet5&#47;1_rss.png'
                         style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
                 <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                 <param name='embed_code_version' value='3' />
                 <param name='site_root' value='' />
-                <param name='name' value='0429_2&#47;sheet0' />
+                <param name='name' value='_16835414281880&#47;sheet5' />
                 <param name='tabs' value='no' />
                 <param name='toolbar' value='yes' />
                 <param name='static_image'
-                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;04&#47;0429_2&#47;sheet0&#47;1.png' />
+                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16835414281880&#47;sheet5&#47;1.png' />
                 <param name='animate_transition' value='yes' />
                 <param name='display_static_image' value='yes' />
                 <param name='display_spinner' value='yes' />
@@ -136,7 +136,7 @@
                 <param name='filter' value='publish=yes' />
             </object></div>
         <script
-            type='text/javascript'>                    var divElement = document.getElementById('viz1682862064528'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.65) + 'px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1027px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            type='text/javascript'>                    var divElement = document.getElementById('viz1683562017203'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; } else { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 1.77) + 'px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
     </section>
 
 
@@ -148,9 +148,15 @@
             navlinks.classList.toggle('mobile-menu')
         })
         // 預算的拉bar
-
         const input = document.querySelector('.inputbudget');
         const number = document.querySelector('.number');
+        const reset = document.querySelector('#reset')
+
+        // 點重置會更新拉bar數字
+        reset.addEventListener('click', () => {
+            number.textContent = '100萬'
+        })
+
         input.addEventListener('input', () => {
             if (input.value == 100000000) {
                 number.textContent = '1億'
@@ -171,12 +177,6 @@
         const predictform = document.getElementById('predict-form');
         const home = document.getElementById('navbar');
         const dashboard = document.getElementById('dashboard');
-
-        ({
-            behavior: 'smooth',
-            block: 'end',
-            inline: "start"
-        })
 
         homebtn.addEventListener('click', () => {
             home.scrollIntoView
